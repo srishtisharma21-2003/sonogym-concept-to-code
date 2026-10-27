@@ -1,17 +1,19 @@
 # SonoGym Concept-to-Code: Bridging Physics and Learning for Robotic Ultrasound
 
-## 📌 Executive Summary: Why I Built This
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)
+![ROS2](https://img.shields.io/badge/ROS2-Humble-green.svg)
+![Status](https://img.shields.io/badge/Status-Proof%20of%20Concept-success.svg)
 
-When Dr. Raina shared the **SonoGym** paper, I realized the true challenge of robotic ultrasound is not just moving a robot arm, but **generating realistic, fast, and physically accurate data** so an AI can learn safely. 
-
-My previous prototype had a decoupled camera, which is physically invalid for clinical robotics. I built this repository to bridge that gap. Instead of a static summary, I wanted to prove—through code—that I understand the **dual-pipeline architecture** (Physics-based vs. Learning-based) required to create a high-fidelity simulator like SonoGym. 
-
-This repository is my practical foundation for contributing to the **RAHAT project**, where I aim to combine these simulation techniques with closed-loop robotic control.
+> [!NOTE]
+> **Executive Summary:** 
+> When Dr. Raina shared the **SonoGym** paper, I realized the true challenge of robotic ultrasound is not just moving a robot arm, but **generating realistic, fast, and physically accurate data** so an AI can learn safely. 
+>
+> My previous prototype had a decoupled camera, which is physically invalid for clinical robotics. I built this repository to bridge that gap. Instead of a static summary, I wanted to prove—through code—that I understand the **dual-pipeline architecture** (Physics-based vs. Learning-based) required to create a high-fidelity simulator like SonoGym. This is my practical foundation for contributing to the **RAHAT project**.
 
 ---
 
 ## 📖 Key Research Takeaways from SonoGym
-
 Reading the SonoGym paper revealed four critical engineering insights that completely changed how I view medical robotics:
 
 1. **Massive Parallelization is Mandatory:** Training an AI via trial-and-error on a real robot is too slow and dangerous. SonoGym uses NVIDIA IsaacLab to run hundreds of simulations simultaneously.
@@ -20,8 +22,6 @@ Reading the SonoGym paper revealed four critical engineering insights that compl
 4. **The Reward Function is Everything:** The AI is rewarded for **surface coverage** (scanning the bone) minus the **trajectory length** (energy used). This teaches the robot to scan efficiently.
 
 ### 📊 Visualizing the Dual-Data Strategy
-This diagram explains the core challenge we face in medical simulation and how I tackled it in my code:
-
 ```mermaid
 graph LR
     A[Raw Medical Data / CT] --> B{Which Method?}
