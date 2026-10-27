@@ -10,18 +10,16 @@ This repository is my practical foundation for contributing to the **RAHAT proje
 
 ---
 
-## 📖 Key Research Takeaways from SonoGym (What I Learned)
+## 📖 Key Research Takeaways from SonoGym
 
 Reading the SonoGym paper revealed four critical engineering insights that completely changed how I view medical robotics:
 
-1. **Massive Parallelization is Mandatory:** Training an AI via trial-and-error on a real robot is too slow and dangerous. SonoGym uses NVIDIA IsaacLab to run hundreds of simulations simultaneously. This is the only way to train Reinforcement Learning (RL) agents efficiently.
-2. **The Dual-Data Strategy:** You need both **Physics-based** rendering (for fast, cheap data generation) and **GAN-based** rendering (to solve the "Sim-to-Real" gap). 
-3. **Safe Reinforcement Learning:** In surgery, mistakes can be fatal. I learned that SonoGym integrates *safety filters* into the RL loop, ensuring the robot never pushes the probe too hard or moves into dangerous anatomical zones.
-4. **The Reward Function is Everything:** For autonomous scanning, the AI is rewarded for **surface coverage** (how much of the bone it scanned) minus the **trajectory length** (how much energy it used). This teaches the robot to scan efficiently.
+1. **Massive Parallelization:** Training on a real robot is too slow. SonoGym uses NVIDIA IsaacLab to run hundreds of simulations simultaneously.
+2. **The Dual-Data Strategy:** You need **Physics-based** rendering (fast, cheap) for early training, and **GAN-based** rendering (realistic textures) to solve the "Sim-to-Real" gap.
+3. **Safe Reinforcement Learning:** In surgery, mistakes can be fatal. Safety filters must be integrated into the RL loop.
+4. **The Reward Function:** The AI must be rewarded for **surface coverage** (scanning the bone) minus the **trajectory length** (energy used).
 
 ### 📊 Visualizing the Dual-Data Strategy
-This diagram explains the core challenge we face in medical simulation and how I tackled it in my code:
-
 ```mermaid
 graph LR
     A[Raw Medical Data / CT] --> B{Which Method?}
