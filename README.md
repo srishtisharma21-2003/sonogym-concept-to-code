@@ -5,6 +5,8 @@
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-green.svg)
 ![Status](https://img.shields.io/badge/Status-Proof%20of%20Concept-success.svg)
 
+> 📖 **[Click here to read the full literature review and industry analysis: SonoGym Deep Dive](docs/SonoGym_Deep_Dive.md)**
+
 > [!NOTE]
 > **Executive Summary:** 
 > When Dr. Raina shared the **SonoGym** paper, I realized the true challenge of robotic ultrasound is not just moving a robot arm, but **generating realistic, fast, and physically accurate data** so an AI can learn safely. 
