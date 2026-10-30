@@ -90,3 +90,54 @@ python physics_raycaster.py
 
 # 3. View the output
 # The script will generate and open 'raycaster_proof.png'
+```
+
+---
+
+## 🧠 Artifact 2: The Learning-Based Pipeline (GAN Translation)
+
+> [!IMPORTANT]  
+> **The Problem:** Physics-based rendering is fast but lacks complex tissue textures and shadows, causing a **Sim-to-Real domain shift**. AI models trained on perfect synthetic data often fail on real patients.
+
+**The Code Logic:** 
+Because training a GAN from scratch requires massive computational power, I used a pre-trained **Pix2Pix** conditional GAN. I designed a Google Colab notebook (`gan_inference.ipynb`) that loads the model weights, takes a source domain (a synthetic edge map simulating anatomical boundaries), and translates it into a realistic target domain.
+
+**Why I did this:** This mirrors SonoGym's **Learning-Based** pipeline. It proves I understand how researchers use domain translation to generate photorealistic ultrasound textures that can train robust AI agents.
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fiCL4CHXTXOg0WVSlJBjpmegANSpcvmE)
+
+**Direct Link:** [Click here to view the GAN inference notebook in Google Colab](https://colab.research.google.com/drive/1fiCL4CHXTXOg0WVSlJBjpmegANSpcvmE)
+
+<div align="center">
+  <img src="gan_proof.png" alt="GAN Proof" width="600"/>
+  <p><i>Proof: A Pix2Pix GAN translating a basic edge map into a complex, realistic texture.</i></p>
+</div>
+
+### 💻 How to Run Artifact 2 (Google Colab)
+Because this requires PyTorch and GPU acceleration, I utilized Google Colab. 
+1. Click the "Open in Colab" badge or the direct link above.
+2. Ensure your runtime is set to **T4 GPU** (Runtime -> Change runtime type).
+3. Run the cells sequentially to generate the GAN inference.
+
+---
+
+## 💡 Lessons Learned
+- **Physics is hard to fake:** Writing the ray-caster taught me that generating valid ultrasound images requires a deep understanding of geometry and kinematics.
+- **Sim-to-Real is the bottleneck:** Training AI on perfect data fails in reality. Using GANs to hallucinate realistic textures is the bridge.
+- **The importance of documentation:** Building the code is only half the job. If another researcher cannot understand and reproduce my work, the code is useless.
+
+---
+
+## 🎯 My Action Plan for the RAHAT Project
+Based on my studies of SonoGym, here is my proposed roadmap for integrating these concepts into the RAHAT project.
+
+```mermaid
+gantt
+    title Roadmap for RAHAT Project Contribution
+    dateFormat  YYYY-MM-DD
+    section Phase 1: Kinematics
+    ROS2 TF2 Probe Attachment :active, des1, 2026-11-01, 14d
+    section Phase 2: AI Integration
+    Replace CV with TinyUNet :         des2, after des1, 21d
+    section Phase 3: Autonomy
+    Implement PPO RL Loop    :         des3, after des2, 21d
