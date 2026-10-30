@@ -20,15 +20,15 @@
 ## 📂 Repository Structure & File Guide
 To make this project easy to navigate, here is a breakdown of every file and folder:
 
-*   **`README.md`**: The front door. It summarizes the project, the research takeaways, and how to run the code.
-*   **`docs/` Folder**: The research library. It contains my literature reviews.
-    *   `SonoGym_Explained.md`: A beginner-friendly guide using analogies (like the "flight simulator" and "art forger").
-    *   `SonoGym_Deep_Dive.md`: A professional analysis of industry standards, metrics, and future research.
-*   **`physics_raycaster.py`**: The Python script that simulates the physics of ultrasound using 3D ray-casting.
-*   **`raycaster_proof.png`**: The visual output of the ray-caster, proving that moving the probe changes the image.
-*   **`gan_inference.ipynb`**: The Google Colab notebook that demonstrates GAN-based image translation.
-*   **`gan_proof.png`**: The visual output of the GAN, showing a synthetic image translated into a realistic texture.
-*   **`requirements.txt`**: A standard file listing the Python dependencies (like numpy, matplotlib) needed to run the code.
+| File / Folder | Type | What it does & Why it's important |
+| :--- | :--- | :--- |
+| 📄 **`README.md`** | Documentation | The front door. Summarizes the project, research takeaways, and how to run the code. |
+| 📁 **`docs/`** | Documentation | A research library containing deep-dive essays on the SonoGym architecture. |
+| 🐍 **`physics_raycaster.py`** | Python Code | Simulates ultrasound physics using 3D ray-casting. Proves the probe's pose controls the image. |
+| 🖼️ **`raycaster_proof.png`** | Image | Visual proof showing that moving the probe changes the ultrasound image (fixing the decoupled camera flaw). |
+| ☁️ **`gan_inference.ipynb`** | Jupyter Notebook | A Google Colab notebook running a Pix2Pix AI model. Demonstrates AI domain translation (Sim-to-Real). |
+| 🖼️ **`gan_proof.png`** | Image | Visual proof showing an AI translating a basic edge map into a realistic medical texture. |
+| 📝 **`requirements.txt`**| Config File | Lists the Python libraries (numpy, matplotlib, etc.) required to run the code locally. |
 
 ---
 
