@@ -141,3 +141,17 @@ gantt
     Replace CV with TinyUNet :         des2, after des1, 21d
     section Phase 3: Autonomy
     Implement PPO RL Loop    :         des3, after des2, 21d
+```
+
+*   **Short-term (Weeks 1-2):** Fix the Kinematic Chain using ROS2 `tf2_ros`.
+*   **Mid-term (Weeks 3-5):** Upgrade AI & Data, replacing classical OpenCV with my PyTorch **TinyUNet**.
+*   **Long-term (Weeks 6+):** Implement a Reinforcement Learning loop (PPO) for autonomous scanning.
+
+---
+
+## 📚 References
+1. **SonoGym:** Ao, Y., et al. "SonoGym: High Performance Simulation for Challenging Surgical Tasks with Robotic Ultrasound." arXiv:2507.01152 (2025).
+2. **Pix2Pix:** Isola, P., et al. "Image-to-Image Translation with Conditional Adversarial Networks." CVPR (2017).
+
+---
+*Developed by Srishti Sharma | B.Tech CSE '26 | Targeted for the Project Research Scientist-I (RAHAT) role at IIT Mandi.*
