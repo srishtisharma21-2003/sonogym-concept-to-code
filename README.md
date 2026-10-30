@@ -61,3 +61,31 @@ graph TD
     style E fill:#d4edda,stroke:#155724,stroke-width:2px
     style F fill:#d4edda,stroke:#155724,stroke-width:2px
     style G fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+
+---
+
+## 🔬 Artifact 1: The Physics-Based Pipeline (Ray-Casting)
+
+> [!IMPORTANT]  
+> **The Problem:** My previous simulation suffered from a "decoupled camera" (the image didn't depend on the robot's pose). In reality, an ultrasound image is a direct function of the probe's kinematic state intersecting with tissue.
+
+**The Code Logic:** 
+The `physics_raycaster.py` script generates a 3D voxel phantom (simulating tissue and bone). It then casts an array of rays from a virtual probe into this phantom. If a ray hits a high-density object (bone), it records the depth and assigns a pixel intensity. 
+
+**Why I did this:** This mirrors SonoGym's **Model-Based** pipeline. By moving the probe and watching the image change, I am physically proving that the sensor must be rigidly attached to the end-effector.
+
+<div align="center">
+  <img src="raycaster_proof.png" alt="Raycaster Proof" width="800"/>
+  <p><i>Proof: As the probe translates and rotates, the US image dynamically changes, proving spatial dependency.</i></p>
+</div>
+
+### 💻 How to Run Artifact 1 (Local Setup)
+```bash
+# 1. Install dependencies (also listed in requirements.txt)
+pip install numpy matplotlib
+
+# 2. Run the ray-caster script
+python physics_raycaster.py
+
+# 3. View the output
+# The script will generate and open 'raycaster_proof.png'
